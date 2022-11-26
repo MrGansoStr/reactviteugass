@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { AuthGuard } from "./guards/AuthGuard.jsx";
 import { PrivateRoutes } from "./models/routes.js";
 import Contacts from "./pages/Public/Contacts/Contacts.jsx";
