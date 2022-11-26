@@ -13,7 +13,6 @@ function Transactions() {
       getDataTransactions(userState.userInfo?.id_user)
         .then(response => {
           setfulldata(response);
-          console.log(response);
         })
     } catch (error) {
       console.log(error);

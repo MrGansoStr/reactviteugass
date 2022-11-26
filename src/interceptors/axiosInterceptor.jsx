@@ -1,9 +1,11 @@
 import axios from "axios";
-import { getLocalStorage } from "../utilities/localStorage.utility";
+import { clearLocalStorage, getLocalStorage } from "../utilities/localStorage.utility";
+import { storageKeys } from './../models/StorageKeys';
+import { userKey } from './../redux/states/user';
 
 export const axiosInterceptor = () =>  {
   const updateHeaders = (request) => {
-    const token = getLocalStorage("accessToken");
+    const token = getLocalStorage(storageKeys.ACCESSTOKEN);
     const newHeaders = {
       Authorization: `Bearer ${token}`
     }
@@ -21,6 +23,10 @@ export const axiosInterceptor = () =>  {
 
   }, (error) => {
     console.log(error.response?.data);
+    if(error.response?.data?.name?.includes("TokenExpiredError")) {
+      clearLocalStorage(userKey);
+      clearLocalStorage(storageKeys.ACCESSTOKEN);
+    }
     return error;
   })
 
