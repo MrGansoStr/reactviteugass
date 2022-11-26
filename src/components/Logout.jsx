@@ -1,19 +1,22 @@
 import { Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { clearLocalStorage } from '../utilities/localStorage.utility';
-import { userKey } from './../redux/states/user';
+import { resetUser, userKey } from './../redux/states/user';
 import { PublicRoutes } from './../models/routes';
+import { storageKeys } from './../models/StorageKeys';
+import { useDispatch } from 'react-redux';
 
 function Logout() {
-
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatcher = useDispatch();
 
   const logout = (e) => {
     e.preventDefault();
+    dispatcher(resetUser());
     clearLocalStorage(userKey);
-    navigate(`/${PublicRoutes.LOGIN}`, {replace: true});
+    clearLocalStorage(storageKeys.ACCESSTOKEN);
+    navigate(`/${PublicRoutes.LOGIN}`);
+    window.location.reload();
   } 
 
   return (

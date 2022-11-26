@@ -29,7 +29,7 @@ const App = () => {
                 <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<PrivatePages />} />
               </Route>
             </RoutesNotFound>
-            <Logout />
+            {/*<Logout />*/}
             <Footer />
           </BrowserRouter>
         </Provider>

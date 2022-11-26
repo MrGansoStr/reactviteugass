@@ -19,7 +19,7 @@ function Receipts() {
     } catch (error) {
       console.log(error);
     }
-  }, [userState]);
+  }, []);
 
   return (
     <div className="container-xl p-3">

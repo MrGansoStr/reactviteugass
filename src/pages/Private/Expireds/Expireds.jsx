@@ -15,7 +15,6 @@ function Expireds() {
       getDataExpireds(userState.userInfo?.id_user)
         .then(result => {
           setfulldata(result);
-          console.log(result);
         })
     } catch (error) {
       console.log(error);

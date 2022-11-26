@@ -1,7 +1,22 @@
 import { Link } from "react-router-dom";
 import Logo from '../../../assets/waterdrop.svg';
+import { lazy, useEffect, useState } from 'react';
+const Logout = lazy(() => import('./../../../components/Logout'));
+import { storageKeys } from './../../../models/StorageKeys';
+import { getLocalStorage } from "../../../utilities/localStorage.utility";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const userState = useSelector(store => store.user);
+  const [isauthenticated, setisauthenticated] = useState(false);
+  useEffect(() => {
+    if(userState.accessToken.length != 0) {
+      setisauthenticated(true);
+    }
+    else {
+      setisauthenticated(false);
+    }
+  },[userState]);
   return (
     <header className="border-bottom">
       <div className="container-xl">
@@ -28,18 +43,9 @@ const Navbar = () => {
                   <Link className="nav-link active" to="/example">Tramites</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/login">Login</Link>
-                </li>
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="/">Action</a></li>
-                    <li><a className="dropdown-item" href="/">Another action</a></li>
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="/">Something else here</a></li>
-                  </ul>
+                  {
+                    isauthenticated ? <Logout /> : <Link className="nav-link active" to="/login" >Login</Link>
+                  }
                 </li>
               </ul>
             </div>

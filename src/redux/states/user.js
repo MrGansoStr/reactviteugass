@@ -24,7 +24,6 @@ export const userSlice = createSlice({
       return result;
     },
     resetUser: () => {
-      clearLocalStorage(userKey);
       return EmptyUser;
     }
   }
