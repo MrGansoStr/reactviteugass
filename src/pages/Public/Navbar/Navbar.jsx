@@ -3,7 +3,7 @@ import Logo from '../../../assets/waterdrop.svg';
 
 const Navbar = () => {
   return (
-    <header className="">
+    <header className="border-bottom">
       <div className="container-xl">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">

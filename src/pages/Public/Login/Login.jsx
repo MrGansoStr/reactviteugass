@@ -12,6 +12,7 @@ import { PrivateRoutes, PublicRoutes } from './../../../models/routes';
 function Login() {
   const [codeConexion, setcodeConexion] = useState("");
   const [lastName, setlastName] = useState("");
+  const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
