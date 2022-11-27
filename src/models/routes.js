@@ -12,3 +12,8 @@ export const PrivateRoutes = {
   TRANSACTIONS: "transacciones",
   BALANCE: "saldo"
 };
+
+export const AdminRoutes = {
+  ADMINISTRATOR: "admin",
+  DASHBOARD: "dashboard"
+}

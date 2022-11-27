@@ -7,7 +7,6 @@ const PublicValidationFragment = <Navigate replace to={PrivateRoutes.PRIVATE} />
 
 export const AuthGuard = ({ privateValidation }) => {
   const userState = useSelector((store) => store.user);
-  //const userState = JSON.parse(localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")): "";
   return userState.accessToken.length > 0 ?(
     privateValidation ? (
       PrivateValidationFragment

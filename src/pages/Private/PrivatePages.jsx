@@ -1,6 +1,5 @@
 import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
-import Logout from "../../components/Logout";
 import { PrivateRoutes } from "../../models/routes";
 import RoutesNotFound from "../../utilities/RoutesNotFound.utility";
 

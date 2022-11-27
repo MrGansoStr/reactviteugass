@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { getData } from './getFullData';
 import { DataGrid } from '@mui/x-data-grid';
 import ButtonBack from '../ButtonBack/ButtonBack';
-import { COLUMNSRECEIPT } from './../../../models/tables';
-
+import { COLUMNSRECEIPT, ROWSHELP } from './../../../models/tables';
 
 function Receipts() {
   const userState = useSelector(store => store.user);
@@ -29,8 +28,8 @@ function Receipts() {
       <h3 className="text-uppercase fw-bold">Recibos</h3>
       <div className="w-100" style={{ height: 500 }}>
         <DataGrid
-          getRowId={row => row["id_receipt"]}
-          rows={fulldata}
+          getRowId={row => row["id_receipt"] || row["id"]}
+          rows={fulldata || ROWSHELP}
           columns={COLUMNSRECEIPT}
           pageSize={5}
           rowsPerPageOptions={[5]}

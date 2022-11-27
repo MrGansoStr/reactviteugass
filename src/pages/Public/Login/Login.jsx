@@ -7,7 +7,8 @@ import { useEffect } from 'react';
 import { clearLocalStorage, getStore } from "../../../utilities/localStorage.utility";
 import { userKey } from './../../../redux/states/user';
 import { useNavigate } from "react-router-dom";
-import { PrivateRoutes, PublicRoutes } from './../../../models/routes';
+import { AdminRoutes, PrivateRoutes, PublicRoutes } from './../../../models/routes';
+import { BASE_URL_API, ENPOINTS } from "../../../models/urlApi";
 
 function Login() {
   const [codeConexion, setcodeConexion] = useState("");
@@ -15,17 +16,26 @@ function Login() {
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userState = useSelector(store => store.user);
   useEffect(() => {
     clearLocalStorage(userKey);
-    navigate(`/${PublicRoutes.LOGIN}`, {replace: true});
+    navigate(`/${PublicRoutes.LOGIN}`);
   },[]);
 
+  const redirect = async ({user_rol}) => {
+    if(user_rol === 2) {
+      return navigate(`/${AdminRoutes.ADMINISTRATOR}`)
+    }
+    else {
+      return navigate(`/${PrivateRoutes.PRIVATE}`);
+    }
+  } 
   const login = async (e) => {
     e.preventDefault();
     try {
-      let {data} = await axios.post("https://api-rest-mysql-psi.vercel.app/login", {codeConexion: codeConexion, LnameP: lastName});
-      dispatch(createUser(data))
-      navigate(`/${PrivateRoutes.PRIVATE}`, {replace: true});
+      let {data} = await axios.post(`${BASE_URL_API}/${ENPOINTS.LOGIN}`, {codeConexion: codeConexion, LnameP: lastName});
+      dispatch(createUser(data));
+      await redirect(data?.userInfo);
     } catch (error) {
       if (!error?.response) {
         setErrMsg('No Server Response');

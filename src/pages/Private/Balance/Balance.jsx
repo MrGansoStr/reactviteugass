@@ -10,9 +10,9 @@ function Balance() {
   useEffect(() => {
     try {
       getDataBalance(userState.userInfo?.id_user)
-        .then(response => {
-          setfulldata(response);
-        });
+      .then(response => {
+        setfulldata(response);
+      });
     } catch (error) {
       console.log(error)
     }
@@ -37,8 +37,8 @@ function Balance() {
           <p>Nombre Completo: <b>{userState.userInfo?.Fname} {userState.userInfo?.LnameP} {userState.userInfo?.LnameM}</b> </p>
           <p>Email: <b>{userState.userInfo?.email}</b></p>
           <p>Codigo de Conexion: <b>{userState.userInfo?.code_conexion}</b></p>
-          <p>DNI: <b>{fulldata[0]?.dni}</b></p>
-          <p className="text-uppercase">Balance: <b>{fulldata[0]?.val}</b> </p>
+          <div>DNI: <b>DNI</b></div>
+          <div className="text-uppercase">Balance: <b>BALANCE</b> </div>
         </div>
       </div>
     </div>

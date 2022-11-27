@@ -31,6 +31,7 @@ function Footer() {
         <br />
         <br />
         <div className="container text-white p-3 text-center">
+          <p className="text-uppercase fw-bold">Página no oficial</p>
           <p>Copyright © 2022 ugassVite Test Todos los derechos reservados</p>
           <Link className="nav-item" to="/">
             <FacebookIcon />

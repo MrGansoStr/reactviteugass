@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import LateralBar from "./Components/LateralBar";
 import { getDataDashboard } from "./getDataDashboard";
+import { DATABARHELP } from "../../../models/tables";
+
 
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-
-
 function Dashboard() {
   const [latestData, setlatestData] = useState([["Element", "Gastos"]]);
   const [fulldata, setfulldata] = useState([]);
@@ -21,7 +21,7 @@ function Dashboard() {
           return response;
         })
         .then((e) => {
-          e.map(element => {
+          e?.map(element => {
             setlatestData(latestData => [...latestData, [months[element.monthFactured - 1], element.mount]]);
             latestData.splice(e.length - 2, e.length);;
           })
@@ -43,7 +43,7 @@ function Dashboard() {
           <div className="w-100 m-0 m-auto py-4">
             <Chart
               chartType="ColumnChart"
-              data={latestData}
+              data={latestData.length == 1 ? DATABARHELP: latestData}
               width="100%"
               height="400px"
               legendToggle

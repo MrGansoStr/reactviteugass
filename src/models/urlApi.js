@@ -5,4 +5,6 @@ export const ENPOINTS = {
   RECEIPTS: "receipts",
   EXPIREDS: "expireds",
   TRANSACTIONS: "transactions",
+  LOGIN: "login",
+  USERS: "users"
 }

@@ -5,6 +5,9 @@ import ButtonBack from '../ButtonBack/ButtonBack';
 import { DataGrid } from '@mui/x-data-grid';
 import { getDataTransactions } from './getDataTransactions';
 import { COLUMNSTRANSACTIONS } from '../../../models/tables';
+import { ROWSHELP } from './../../../models/tables';
+
+
 function Transactions() {
   const userState = useSelector(store => store.user);
   const [fulldata, setfulldata] = useState([]);
@@ -27,8 +30,8 @@ function Transactions() {
       <div className="container-xl">
         <div className="w-100" style={{ height: 500 }}>
           <DataGrid
-            getRowId={row => row["id_user"]}
-            rows={fulldata}
+            getRowId={row => row["id_user"] || row["id"]}
+            rows={fulldata || ROWSHELP}
             columns={COLUMNSTRANSACTIONS}
             pageSize={5}
             rowsPerPageOptions={[5]}
