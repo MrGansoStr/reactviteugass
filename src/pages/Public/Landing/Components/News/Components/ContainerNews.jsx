@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import FrameNew from './FrameNew';
 import NewImg from '../../../../../../assets/news.png';
+import { PublicRoutes } from './../../../../../../models/routes';
 
 function ContainerNews() {
   return (
     <>
-      <Link className="nav-link text-primary p-3 text-end fw-bold text-uppercase" to="/noticias">Ver todos</Link>
+      <Link className="nav-link text-primary p-3 text-end fw-bold text-uppercase" to={PublicRoutes.NOTICIAS}>Ver todos</Link>
         <div className="container-lg row">
           <div className="col-sm-3">
             <Link className="nav-link" to="/contactos">

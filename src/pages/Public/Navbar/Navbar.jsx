@@ -5,6 +5,7 @@ const Logout = lazy(() => import('./../../../components/Logout'));
 import { useSelector } from 'react-redux';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
+import { PublicRoutes } from './../../../models/routes';
 
 const Navbar = () => {
   const userState = useSelector(store => store.user);
@@ -44,11 +45,18 @@ const Navbar = () => {
                   <Link className="nav-link active" to="/">Landing</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/contactos">Contactos</Link>
+                  <Link className="nav-link active" to={PublicRoutes.CONTACTOS}>Contactos</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/example">Tramites</Link>
+                  <Link className="nav-link active" to={PublicRoutes.NOTICIAS}>Noticias</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link active" to={PublicRoutes.COMUNICADOS}>Comunicados</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link disabled" to="/">Tramites</Link>
+                </li>
+                <li className="nav-item"></li>
                 <li className="nav-item">
                   {
                     isauthenticated ? <Logout /> : <Link className="nav-link active" to="/login" >Login</Link>

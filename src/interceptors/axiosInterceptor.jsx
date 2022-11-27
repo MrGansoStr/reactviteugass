@@ -1,5 +1,6 @@
 import axios from "axios";
 import { clearLocalStorage, getLocalStorage } from "../utilities/localStorage.utility";
+import { SnackbarUtilities } from "../utilities/snackBarManager";
 import { storageKeys } from './../models/StorageKeys';
 import { userKey } from './../redux/states/user';
 
@@ -19,15 +20,17 @@ export const axiosInterceptor = () =>  {
   });
   axios.interceptors.response.use(response => {
     console.log("Success (200)");
+    SnackbarUtilities.success("Request Success")
     return response;
 
   }, (error) => {
     console.log(error.response?.data);
+    SnackbarUtilities.error(error.response?.data?.message);
     if(error.response?.data?.name?.includes("TokenExpiredError")) {
       clearLocalStorage(userKey);
       clearLocalStorage(storageKeys.ACCESSTOKEN);
     }
-    return error;
+    return Promise.reject(error);
   })
 
 };

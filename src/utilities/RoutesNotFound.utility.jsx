@@ -5,7 +5,7 @@ function RoutesNotFound({ children }) {
   return (
     <Routes>
       {children}
-      <Route path="*" element={<div>Not found</div>} />
+      <Route path="*" element={<div className="m-0 m-auto text-uppercase">Not found</div>} />
     </Routes>
   );
 }

@@ -1,6 +1,8 @@
 export const PublicRoutes = {
   LOGIN: "login",
-  CONTACTOS: "contactos"
+  CONTACTOS: "contactos",
+  NOTICIAS: "noticias",
+  COMUNICADOS: "comunicados"
 };
 
 export const PrivateRoutes = {

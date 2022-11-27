@@ -15,28 +15,37 @@ import Logout from './components/Logout';
 import { RolGuard } from "./guards/RolGuard.jsx";
 import { roles } from './models/roles';
 import AdminPages from "./pages/Admin/AdminPages.jsx";
+import { SnackbarProvider } from "notistack";
+import { SnackBarUtilitiesConfigurator } from "./utilities/snackBarManager.jsx";
+import Noticias from "./pages/Public/News/Noticias.jsx";
+import Comunicados from "./pages/Public/Comuniques/Comunicados.jsx";
 
 const App = () => {
   return (
     <>
       <Suspense fallback={<>Cargando...</>}>
         <Provider store={store}>
-          <BrowserRouter>
-            <Navbar />
-            <RoutesNotFound>
-              <Route index element={<Landing />} />
-              <Route path={PublicRoutes.CONTACTOS} element={<Contacts />} />
-              <Route path={PublicRoutes.LOGIN} element={<Login />} />
-              <Route element={<AuthGuard privateValidation={true} />}>
-                <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<PrivatePages />} />
-              </Route>
-              <Route element={<RolGuard rol={roles.ADMIN} />}>
-                <Route path={`${AdminRoutes.ADMINISTRATOR}/*`} element={<AdminPages />} />
-              </Route>
-            </RoutesNotFound>
-            {<Logout />}
-            <Footer />
-          </BrowserRouter>
+          <SnackbarProvider autoHideDuration={3000}>
+            <SnackBarUtilitiesConfigurator />
+            <BrowserRouter>
+              <Navbar />
+              <RoutesNotFound>
+                <Route index element={<Landing />} />
+                <Route path={PublicRoutes.NOTICIAS} element={<Noticias />} />
+                <Route path={PublicRoutes.COMUNICADOS} element={<Comunicados />} />
+                <Route path={PublicRoutes.CONTACTOS} element={<Contacts />} />
+                <Route path={PublicRoutes.LOGIN} element={<Login />} />
+                <Route element={<AuthGuard privateValidation={true} />}>
+                  <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<PrivatePages />} />
+                </Route>
+                <Route element={<RolGuard rol={roles.ADMIN} />}>
+                  <Route path={`${AdminRoutes.ADMINISTRATOR}/*`} element={<AdminPages />} />
+                </Route>
+              </RoutesNotFound>
+              {<Logout />}
+              <Footer />
+            </BrowserRouter>
+          </SnackbarProvider>
         </Provider>
       </Suspense>
     </>
