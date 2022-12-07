@@ -6,5 +6,7 @@ export const ENPOINTS = {
   EXPIREDS: "expireds",
   TRANSACTIONS: "transactions",
   LOGIN: "login",
-  USERS: "users"
+  USERS: "users",
+  PENDINGS: "pendings",
+  GENERATETRANSACTION: "generatetransaction"
 }
