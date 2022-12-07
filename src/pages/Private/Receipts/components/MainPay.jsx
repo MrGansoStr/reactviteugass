@@ -2,16 +2,15 @@ import { Box } from "@mui/material";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useState, useEffect } from "react";
 import MsgSuccess from "./MsgSuccess";
-
+import { getPendings } from "./GetPendings";
 
 function MainPay() {
   const [success, setSuccess] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState("");
   const [orderID, setOrderID] = useState(false);
+  
   useEffect(() => {
-  },
-    [success]
-  );
+  },[success]);
   // creates a paypal order
   const createOrder = (data, actions) => {
     return actions.order

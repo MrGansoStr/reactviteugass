@@ -39,7 +39,7 @@ export const COLUMNSRECEIPT = [
 
 export const COLUMNSTRANSACTIONS = [
   {
-    field: 'id_user',
+    field: 'id_transaction',
     headerName: 'ID',
     width: 60
   },

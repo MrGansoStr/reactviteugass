@@ -30,7 +30,7 @@ function Transactions() {
       <div className="container-xl">
         <div className="w-100" style={{ height: 500 }}>
           <DataGrid
-            getRowId={row => row["id_user"] || row["id"]}
+            getRowId={row => row["id_transaction"] || row["id"]}
             rows={fulldata || ROWSHELP}
             columns={COLUMNSTRANSACTIONS}
             pageSize={5}
