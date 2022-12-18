@@ -34,6 +34,7 @@ function MsgSuccess() {
     } catch (error) {
       console.log(error);
     }
+    return () => {console.log("Pop-up closed 2");}
   }, [open]);
   return (
     <div>
@@ -46,7 +47,7 @@ function MsgSuccess() {
       >
         <Alert severity="success">
           <AlertTitle>Success</AlertTitle>
-          Successfull Pay — <strong>check it out!</strong>
+          Successfull Pay the Receipt — <strong>check it out!</strong>
         </Alert>
       </Modal>
     </div>

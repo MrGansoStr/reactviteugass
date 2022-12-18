@@ -20,6 +20,7 @@ function Transactions() {
     } catch (error) {
       console.log(error);
     }
+    return () => {}
   }, []);
   return (
     <div className="">

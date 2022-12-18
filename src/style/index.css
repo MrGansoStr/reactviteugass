@@ -1,11 +1,30 @@
 * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+*::-webkit-scrollbar {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+*::-webkit-scrollbar-thumb:vertical {
+  background: #a7a6a6;
+  border-radius: 0.6rem;
+  margin: 1rem solid black;
+  border: 1rem solid #797979;
+}
+*::-webkit-scrollbar-thumb:horizontal{
+  background: #a7a6a6;
+  border-radius: 0.6rem;
+  margin: 1rem solid black;
+  border: 1rem solid #797979;
 }
 
 .shadow-container:hover {
-  box-shadow: 10px 7px 19px 3px rgba(0,0,0,0.15);
-  -webkit-box-shadow: 10px 7px 19px 3px rgba(0,0,0,0.15);
-  -moz-box-shadow: 10px 7px 19px 3px rgba(0,0,0,0.15);
+  box-shadow: 10px 7px 19px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 10px 7px 19px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 10px 7px 19px 3px rgba(0, 0, 0, 0.15);
 }
 
 .without-shadow {

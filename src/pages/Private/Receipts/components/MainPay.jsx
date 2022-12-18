@@ -1,8 +1,10 @@
 import { Box } from "@mui/material";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useState, useEffect } from "react";
-import MsgSuccess from "./MsgSuccess";
+import { useState, useEffect, lazy } from "react";
+//import MsgSuccess from "./MsgSuccess";
 import { getPendings } from "./GetPendings";
+
+const MsgSuccess = lazy(() => import('./MsgSuccess'));
 
 function MainPay() {
   const [success, setSuccess] = useState(false);
@@ -10,6 +12,9 @@ function MainPay() {
   const [orderID, setOrderID] = useState(false);
   
   useEffect(() => {
+    return () => {
+      console.log("pop-up first closed")
+    }
   },[success]);
   // creates a paypal order
   const createOrder = (data, actions) => {
@@ -48,10 +53,10 @@ function MainPay() {
       <PayPalScriptProvider
         createOrder={createOrder}
         onApprove={onApprove}
+        onError={onError}
         deferLoading={false}
         options={{
-          "client-id":
-            "test",
+          "client-id": "test",
           currency: "USD",
           intent: "capture",
         }}>
@@ -62,7 +67,7 @@ function MainPay() {
       </PayPalScriptProvider>
       <Box className="w-75 m-0 m-auto container-md text-center align-middle justify-content-center overflow-auto rounded-2" style={{ height: "75%"}} sx={{transform: "translate(0%, 15%)",bgcolor: 'background.paper', border: '0px ', divShadow: 24, p: 3}}>
         {
-          success ? <MsgSuccess /> : null
+          success ? <MsgSuccess /> : <p>{ErrorMessage}</p>
         }
       </Box>
     </div>
