@@ -3,6 +3,8 @@ import { getAllUsers } from './getAllUsers';
 import { DataGrid } from '@mui/x-data-grid';
 import { ROWSHELP, COLUMNSUSERS } from './../../../models/tables';
 import { ROLES2 } from "../../../models/roles";
+import { editUserInfo } from './editUser';
+
 
 function DashboardAdmin() {
   const [latestData, setlatestData] = useState([]);
@@ -37,6 +39,7 @@ function DashboardAdmin() {
           columns={COLUMNSUSERS}
           pageSize={5}
           rowsPerPageOptions={[5]}
+          onCellEditCommit={rowinfo => editUserInfo(rowinfo)}
           checkboxSelection
           disableSelectionOnClick
         />

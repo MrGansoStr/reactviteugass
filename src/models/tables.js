@@ -76,51 +76,61 @@ export const COLUMNSUSERS = [
   {
     field: 'id_user',
     headerName: 'ID',
-    width: 70
+    width: 70,
+    editable: false
   },
   {
     field: 'user_rol',
     headerName: 'Rol',
-    width: 70
+    width: 70,
+    editable: false
   },
   {
     field: 'Fname',
     headerName: 'Nombre Completo',
-    width: 110
+    width: 110,
+    editable: false
   },
   {
     field: 'LnameP',
     headerName: 'Apellido Paterno',
     width: 110,
+    editable: false
   },
   {
     field: 'LnameM',
     headerName: 'Apellido Materno',
     width: 110,
+    editable: false
   },
   {
     field: 'dni',
     headerName: 'DNI',
     width: 90,
+    editable: false
   },
   {
     field: 'email',
     headerName: 'Email',
     width:200,
+    editable: true
   },
   {
     field: 'phone',
     headerName: 'Celular',
     width: 110,
+    editable: false
   },
   {
     field: 'address',
     headerName: 'Dirección',
     width: 130,
+    editable: false
   },{
     field: 'type',
     headerName: 'Tipo',
     width: 180,
+    editable: false
   }
 ];
 

@@ -42,6 +42,7 @@ const App = () => {
                   <Route path={`${AdminRoutes.ADMINISTRATOR}/*`} element={<AdminPages />} />
                 </Route>
               </RoutesNotFound>
+              {<p>Help logout</p>}
               {<Logout />}
               <Footer />
             </BrowserRouter>

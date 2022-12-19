@@ -6,7 +6,7 @@ export const PublicRoutes = {
 };
 
 export const PrivateRoutes = {
-  PRIVATE: "private",
+  PRIVATE: "private", // home when is loggedin
   DASHBOARD: "dashboard",
   HOME: "home",
   RECEIPTS: "recibos",

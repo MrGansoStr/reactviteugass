@@ -8,7 +8,7 @@ function Comunicados() {
     <div className="container-xl">
       <div className="container-lg">
         <div className="text-uppercase text-center py-4">
-          <h3> Noticias </h3>
+          <h3> Comunicados </h3>
         </div>
         <div className="container-lg row py-3">
           <div className="col-sm-3">

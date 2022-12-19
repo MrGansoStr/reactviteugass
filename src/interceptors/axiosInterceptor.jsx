@@ -22,7 +22,6 @@ export const axiosInterceptor = () =>  {
     console.log("Success (200)");
     SnackbarUtilities.success("Request Success")
     return response;
-
   }, (error) => {
     console.log(error.response?.data);
     SnackbarUtilities.error(error.response?.data?.message);

@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import { PublicRoutes } from './../../../models/routes';
 
 const Navbar = () => {
-  const userState = useSelector(store => store.user);
+  const userState = useSelector(store => store?.user);
   const [isauthenticated, setisauthenticated] = useState(false);
   useEffect(() => {
     if (userState.accessToken.length != 0) {

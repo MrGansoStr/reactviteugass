@@ -1,7 +1,6 @@
 import Logo from '../../../assets/waterdrop.svg';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -33,12 +32,12 @@ function Footer() {
         <div className="container text-white p-3 text-center">
           <p className="text-uppercase fw-bold">Página no oficial</p>
           <p>Copyright © 2022 ugassVite Test Todos los derechos reservados</p>
-          <Link className="nav-item" to="/">
+          <a className="nav-item" href="https://www.facebook.com/Ingenieria.Estadistica.e.Informatica.UNA.Puno" target="_blank" rel="noopener noreferrer">
             <FacebookIcon />
-          </Link>
-          <Link className="nav-item" to="/">
+          </a>
+          <a className="nav-item" href='https://web.whatsapp.com/send?phone=+51927248289&text=HelloFromUgassVite' target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon />
-          </Link>
+          </a>
         </div>
       </div>
     </div>
