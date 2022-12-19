@@ -3,7 +3,7 @@ import { BASE_URL_API, ENPOINTS } from "../../../models/urlApi";
 
 export const editUserInfo = async(newdata) => {
   try {
-    const { data } = await axios.post(`${BASE_URL_API}/${ENPOINTS.UPDATEUSER}`, {
+    const { data } = await axios.put(`${BASE_URL_API}/${ENPOINTS.UPDATEUSER}`, {
       newemail : newdata?.value,
       userid: newdata?.id
     });
