@@ -9,5 +9,6 @@ export const ENPOINTS = {
   USERS: "users",
   PENDINGS: "pendings",
   GENERATETRANSACTION: "generatetransaction",
-  UPDATEUSER: "updateinfo"
+  UPDATEUSER: "updateinfo",
+  DELETEUSER: "deleteuser"
 }

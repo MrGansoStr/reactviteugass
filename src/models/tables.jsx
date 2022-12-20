@@ -1,3 +1,6 @@
+import { Button } from "@mui/material";
+import { deleteUser } from "../pages/Admin/Dashboard/deleteUser";
+
 export const COLUMNSRECEIPT = [
   { field: 'id_receipt', headerName: 'ID', width: 60 },
   { field: 'LnameP', headerName: 'Apellido Paterno', width: 130 },
@@ -68,7 +71,7 @@ export const COLUMNSTRANSACTIONS = [
   {
     field: 'time',
     headerName: 'Fecha',
-    width:200
+    width: 200
   }
 ];
 
@@ -112,7 +115,7 @@ export const COLUMNSUSERS = [
   {
     field: 'email',
     headerName: 'Email',
-    width:200,
+    width: 200,
     editable: true
   },
   {
@@ -126,11 +129,29 @@ export const COLUMNSUSERS = [
     headerName: 'Dirección',
     width: 130,
     editable: false
-  },{
+  }, {
     field: 'type',
     headerName: 'Tipo',
-    width: 180,
-    editable: false
+    width: 100,
+    editable: false,
+    sortable: false,
+    selectable: false
+  }, {
+    field: 'colDelete',
+    headerName: 'Accion',
+    width: 100,
+    sortable: false,
+    renderCell: (some) => {
+      return (
+        <Button
+          variant="outlined"
+          type="button"
+          color="error"
+          onClick={algo => deleteUser(some.id)}
+        >Eliminar
+        </Button>
+      );
+    }
   }
 ];
 
@@ -148,8 +169,8 @@ export const ROWSHELP = [
 
 export const DATABARHELP = [
   ["Mes", "Gastos", { role: "style" }],
-  ["Enero", 8.94, "#b87333"], 
-  ["Febrero", 10.49, "silver"], 
+  ["Enero", 8.94, "#b87333"],
+  ["Febrero", 10.49, "silver"],
   ["Marzo", 19.3, "gold"],
-  ["Platinum", 21.45, "color: #e5e4e2"], 
+  ["Platinum", 21.45, "color: #e5e4e2"],
 ];

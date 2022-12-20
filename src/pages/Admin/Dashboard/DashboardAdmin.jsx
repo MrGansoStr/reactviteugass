@@ -40,8 +40,10 @@ function DashboardAdmin() {
           pageSize={5}
           rowsPerPageOptions={[5]}
           onCellEditCommit={rowinfo => editUserInfo(rowinfo)}
+          //onCellClick={algo => console.log(algo)}
+          //isRowSelectable={algo2 => console.log(algo2)}
+          disableSelectionOnClick={true}
           checkboxSelection
-          disableSelectionOnClick
         />
       </div>
     </div>
