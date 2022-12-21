@@ -17,5 +17,6 @@ export const PrivateRoutes = {
 
 export const AdminRoutes = {
   ADMINISTRATOR: "admin",
-  DASHBOARD: "dashboard"
+  DASHBOARD: "dashboard",
+  REGISTERUSERS: "registerusers"
 }

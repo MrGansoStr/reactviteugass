@@ -4,11 +4,17 @@ import { DataGrid } from '@mui/x-data-grid';
 import { ROWSHELP, COLUMNSUSERS } from './../../../models/tables';
 import { ROLES2 } from "../../../models/roles";
 import { editUserInfo } from './editUser';
-
+import { Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { AdminRoutes } from "../../../models/routes";
+import AddIcon from '@mui/icons-material/Add';
 
 function DashboardAdmin() {
   const [latestData, setlatestData] = useState([]);
-
+  const navigate = useNavigate();
+  const goToRegister = () => {
+    navigate(`/${AdminRoutes.ADMINISTRATOR}/${AdminRoutes.REGISTERUSERS}`)
+  } 
   useEffect(() => {
     try {
       getAllUsers()
@@ -45,6 +51,12 @@ function DashboardAdmin() {
           disableSelectionOnClick={true}
           checkboxSelection
         />
+      </div>
+      <div className="text-end align-items-end justify-content-end">
+        <Button variant="contained" size="medium" color="success" onClick={goToRegister}>
+          <AddIcon/>
+          Registrar Usuario
+        </Button>
       </div>
     </div>
   )
