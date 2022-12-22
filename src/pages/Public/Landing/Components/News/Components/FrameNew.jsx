@@ -4,14 +4,21 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Collapse, Typography } from '@mui/material';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function FrameNew({ image, message, title, shre }) {
+function FrameNew({ image, info, title, shre, toGo }) {
+  const [expanded, setexpanded] = useState(false);
+  const navigate = useNavigate();
+  const goToMainPage = (e) => {
+    e.preventDefault();
+    navigate(`/${toGo}`)
+  }
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
+        <CardActionArea onClick={goToMainPage}>
           <CardMedia
             component="img"
             height="140"
@@ -23,15 +30,31 @@ function FrameNew({ image, message, title, shre }) {
               {title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {message}
+              {info}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           {shre ? (<Button size="small">Compartir</Button>) : null
           }
-          <Button size="small">Ver más</Button>
+          <Button onClick={(e) => setexpanded(!expanded)} size="small">
+            {expanded ? <>Cerrar</> : <>Ver más</>}
+          </Button>
         </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Información Completa: </Typography>
+            <Typography paragraph>
+              Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
+              aside for 10 minutes.
+            </Typography>
+            <Typography paragraph>
+              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+              medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+              occasionally until lightly browned, 6 to 8 minutes.
+            </Typography>
+          </CardContent>
+        </Collapse>
       </Card>
     </>
   )

@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
+import NotFoundPage from './../pages/Public/NotFoundPage/NotFoundPage';
 
 
-function RoutesNotFound({ children }) {
+function RoutesNotFound({ children, isPrivate, isAdmin}) {
   return (
     <Routes>
       {children}
-      <Route path="*" element={<div className="m-0 m-auto text-uppercase">Not found</div>} />
+      <Route path="*" element={<NotFoundPage authenticated={isPrivate} admin={isAdmin}/>} />
     </Routes>
   );
 }

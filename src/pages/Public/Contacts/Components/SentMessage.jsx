@@ -13,7 +13,7 @@ function SentMessage() {
   }
   return (
     <>
-      <div className="col-md-5 p-4 border rounded-2">
+      <div className="col-md-5 p-4 border rounded-2 shadow-container">
         <h3>Envie su mensaje para poder ayudarlo</h3>
         <p>Su dirección correo electrónico no será publicada.</p>
         <form action="https://formsubmit.co/eb82c991d4ca94c126233be78ee24cf7" method="POST">

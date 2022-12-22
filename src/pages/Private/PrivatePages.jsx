@@ -12,7 +12,7 @@ const Balance = lazy(() => import("./Balance/Balance"));
 
 function PrivatePages() {
   return (
-    <RoutesNotFound>
+    <RoutesNotFound isPrivate={true} isAdmin={false}>
       <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
       <Route path={PrivateRoutes.HOME} element={<Home />} />
       <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />

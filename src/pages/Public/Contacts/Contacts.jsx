@@ -5,7 +5,7 @@ import SentMessage from "./Components/SentMessage";
 function Contacts() {
   return (
     <div className="">
-      <HeaderPage tittle="Contactos" heights="250px" />
+      <HeaderPage tittle="Contactos" heights="250px" imagePath={"contactTo2.jpg"} />
       <div className="container-lg">
         <br />
         <div className="py-5 row">

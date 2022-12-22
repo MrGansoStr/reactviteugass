@@ -4,10 +4,11 @@ import Communiques from "./Components/Communiques/Communiques";
 
 function Landing() {
   return (
-    <div className="">
+    <div>
       <HeaderPage
-        tittle="Portada"
-        heights="300px"
+        tittle="Inicio"
+        heights="400px"
+        imagePath="aguaBackground4.jpg"
       />
       <News />
       <Communiques />

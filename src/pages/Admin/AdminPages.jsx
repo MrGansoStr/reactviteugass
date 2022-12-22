@@ -7,10 +7,10 @@ const DashboardAdmin = lazy(() => import("./Dashboard/DashboardAdmin"));
 
 function AdminPages() {
   return (
-    <RoutesNotFound>
+    <RoutesNotFound isPrivate={true} isAdmin={true}>
       <Route path="/" element={<Navigate to={AdminRoutes.DASHBOARD} />} />
       <Route path={AdminRoutes.DASHBOARD} element={<DashboardAdmin />} />
-      <Route path={AdminRoutes.REGISTERUSERS} element={<RegisterUser/>} />
+      <Route path={AdminRoutes.REGISTERUSERS} element={<RegisterUser />} />
     </RoutesNotFound>
   );
 }

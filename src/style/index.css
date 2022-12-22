@@ -30,3 +30,15 @@
 .without-shadow {
   box-shadow: 0 0 0 0 !important;
 }
+
+.shadow-link:hover {
+  font-size: large;
+  transition: all 0.2s linear;
+  background:#e2e1e1;
+}
+
+.backImage {
+  background-image: url('../assets/aguaBackground2.jpg');
+  height: 50vh;
+  background-repeat: repeat;
+}

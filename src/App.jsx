@@ -29,7 +29,7 @@ const App = () => {
             <SnackBarUtilitiesConfigurator />
             <BrowserRouter>
               <Navbar />
-              <RoutesNotFound>
+              <RoutesNotFound isPrivate={false} isAdmin={false}>
                 <Route index element={<Landing />} />
                 <Route path={PublicRoutes.NOTICIAS} element={<Noticias />} />
                 <Route path={PublicRoutes.COMUNICADOS} element={<Comunicados />} />

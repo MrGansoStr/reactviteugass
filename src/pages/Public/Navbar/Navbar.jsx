@@ -42,16 +42,16 @@ const Navbar = () => {
               </ul>
               <ul className="navbar-nav justify-content-end">
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/">Landing</Link>
+                  <Link className="nav-link active shadow-link rounded-1" to="/">Inicio</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to={PublicRoutes.CONTACTOS}>Contactos</Link>
+                  <Link className="nav-link active shadow-link rounded-1" to={PublicRoutes.NOTICIAS}>Noticias</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to={PublicRoutes.NOTICIAS}>Noticias</Link>
+                  <Link className="nav-link active shadow-link rounded-1" to={PublicRoutes.COMUNICADOS}>Comunicados</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to={PublicRoutes.COMUNICADOS}>Comunicados</Link>
+                  <Link className="nav-link active shadow-link rounded-1" to={PublicRoutes.CONTACTOS}>Contactos</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link disabled" to="/">Tramites</Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
                 <li className="nav-item"></li>
                 <li className="nav-item">
                   {
-                    isauthenticated ? <Logout /> : <Link className="nav-link active" to="/login" >Login</Link>
+                    isauthenticated ? <Logout /> : <Link className="nav-link active shadow-link rounded-1" to="/login" >Login</Link>
                   }
                 </li>
               </ul>
