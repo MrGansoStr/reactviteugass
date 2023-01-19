@@ -91,6 +91,11 @@ function Login() {
         </div>
         <br/>
         <br/>
+         <div>
+                    <p>Credenciales de prueba</p>
+          <p>Codigo de Conexion: 21213322</p>
+<p> Apellido Paterno: Alcides</p>
+          </div>
       </div>
     </>
   );
