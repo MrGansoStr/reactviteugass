@@ -1,6 +1,4 @@
-robots.txt
 User-agent: *
-Disallow: 
 Disallow: /cgi-bin/
 Sitemap: https://reactviteugass.vercel.app/contactos
 Sitemap: https://reactviteugass.vercel.app/
