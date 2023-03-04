@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import { useState } from 'react';
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { userKey } from './../../../redux/states/user';
 import { useNavigate } from "react-router-dom";
 import { AdminRoutes, PrivateRoutes, PublicRoutes } from './../../../models/routes';
 import { BASE_URL_API, ENPOINTS } from "../../../models/urlApi";
+import { UserModel, UserModelAdmin } from "../../../models/User";
 
 function Login() {
   const [codeConexion, setcodeConexion] = useState("");
@@ -20,20 +21,30 @@ function Login() {
   useEffect(() => {
     clearLocalStorage(userKey);
     navigate(`/${PublicRoutes.LOGIN}`);
-  },[]);
+  }, []);
 
-  const redirect = async ({user_rol}) => {
-    if(user_rol === 2) {
+  const redirect = async ({ user_rol }) => {
+    if (user_rol === 2) {
       return navigate(`/${AdminRoutes.ADMINISTRATOR}`)
     }
     else {
       return navigate(`/${PrivateRoutes.PRIVATE}`);
     }
-  } 
+  }
   const login = async (e) => {
     e.preventDefault();
+    if (codeConexion === "12345678" && lastName.toLowerCase() === "testuser") {
+      dispatch(createUser(UserModel))
+      await redirect(UserModel?.userInfo);
+      return;
+    }
+    if (codeConexion === "12312312" && lastName.toLowerCase() === "admin") {
+      dispatch(createUser(UserModelAdmin));
+      await redirect(UserModelAdmin?.userInfo);
+      return;
+    }
     try {
-      let {data} = await axios.post(`${BASE_URL_API}/${ENPOINTS.LOGIN}`, {codeConexion: codeConexion, LnameP: lastName});
+      let { data } = await axios.post(`${BASE_URL_API}/${ENPOINTS.LOGIN}`, { codeConexion: codeConexion, LnameP: lastName });
       dispatch(createUser(data));
       await redirect(data?.userInfo);
     } catch (error) {
@@ -89,13 +100,25 @@ function Login() {
             </form>
           </div>
         </div>
-        <br/>
-        <br/>
-         <div>
-                    <p>Credenciales de prueba</p>
-          <p>Codigo de Conexion: 21213322</p>
-<p> Apellido Paterno: Alcides</p>
-          </div>
+        <br />
+        <br />
+        <Stack className="w-100" spacing={3}>
+          <Box>
+            <Typography>Credenciales de prueba Usuario</Typography>
+            <Typography variant="h6">Codigo de Conexión: 12345678</Typography>
+            <Typography variant="h6">Apellido Paterno: TestUser</Typography>
+          </Box>
+          <Box>
+            <Typography>Credenciales de prueba Admin</Typography>
+            <Typography variant="h6">Codigo de Conexión: 12312312</Typography>
+            <Typography variant="h6">Apellido Paterno: admin</Typography>
+          </Box>
+          <Box>
+            <Typography>Credenciales de prueba Usuario con API y MySQL</Typography>
+            <Typography variant="h6">Codigo de Conexion: 21213322</Typography>
+            <Typography variant="h6"> Apellido Paterno: Alcides</Typography>
+          </Box>
+        </Stack>
       </div>
     </>
   );

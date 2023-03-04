@@ -126,7 +126,7 @@ function RegisterUser() {
               <FormControl required fullWidth sx={{ m: 1, maxWidth: "50%" }}>
                 <TextField onChange={e => setAddress(e.target.value)} id="standard-basic" label="Dirección" variant="standard" required />
                 <div className="invalid-feedback">
-                  Please choose a username.
+                  Por favor, rellene este campo.
                 </div>
               </FormControl>
             </Stack>

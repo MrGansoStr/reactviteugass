@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import ButtonBack from './../ButtonBack/ButtonBack';
 import { COLUMNSRECEIPT, ROWSHELP } from './../../../models/tables';
 import { DataGrid } from '@mui/x-data-grid';
+import { ReceiptsModel } from './../../../models/Receipts';
 
 
 function Expireds() {
@@ -30,7 +31,7 @@ function Expireds() {
       <div className="w-100" style={{ height: 500 }}>
         <DataGrid
           getRowId={row => row["id_receipt"] || row["id"]}
-          rows={fulldata || ROWSHELP} // para que no se rompa la tabla si no hay datos
+          rows={fulldata.length != 0 ? fulldata : ReceiptsModel} // para que no se rompa la tabla si no hay datos
           columns={COLUMNSRECEIPT}
           pageSize={5}
           rowsPerPageOptions={[5]}

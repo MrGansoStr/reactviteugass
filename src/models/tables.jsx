@@ -156,15 +156,42 @@ export const COLUMNSUSERS = [
 ];
 
 export const ROWSHELP = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  { field: 'id_receipt', headerName: 'ID', width: 60 },
+  { field: 'LnameP', headerName: 'Apellido Paterno', width: 130 },
+  { field: 'Fname', headerName: 'Nombres', width: 130 },
+  {
+    field: 'code_conexion',
+    headerName: 'Codigo de conexión',
+    width: 170
+  },
+  {
+    field: 'expiresDay',
+    headerName: 'Dia de Vencimiento',
+    type: 'number',
+    width: 80
+  },
+  {
+    field: 'expiresMonth',
+    headerName: 'Mes de Vencimiento',
+    type: 'number',
+    width: 140
+  },
+  {
+    field: 'mount',
+    headerName: "Monto",
+    type: 'number',
+    width: 60
+  },
+  {
+    field: 'issueDay',
+    headerName: 'Día de Emisión',
+    width: 150
+  },
+  {
+    field: 'number_receipt',
+    headerName: 'Numero del recibo',
+    width: 150
+  }
 ];
 
 export const DATABARHELP = [

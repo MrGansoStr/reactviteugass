@@ -1,0 +1,5 @@
+export const ReceiptsModel = [
+  { "id_receipt": 100, "code_conexion": "12345678", "monthFactured": 5, "yearFactured": 2022, "number_receipt": "0202-00012345", "mount": 20.3, "state": 3, "issueYear": 2022, "issueMonth": 5, "issueDay": 2, "expiresYear": 2022, "expiresMonth": 5, "expiresDay": 31, "Fname": "Manuel", "LnameP": "Alcides" },
+  { "id_receipt": 101, "code_conexion": "12345678", "monthFactured": 4, "yearFactured": 2022, "number_receipt": "0202-00054321", "mount": 15.5, "state": 1, "issueYear": 2022, "issueMonth": 3, "issueDay": 1, "expiresYear": 2022, "expiresMonth": 5, "expiresDay": 1, "Fname": "Manuel", "LnameP": "Alcides" },
+  { "id_receipt": 102, "code_conexion": "12345678", "monthFactured": 2, "yearFactured": 2022, "number_receipt": "0202-00154321", "mount": 25.5, "state": 2, "issueYear": 2022, "issueMonth": 2, "issueDay": 1, "expiresYear": 2022, "expiresMonth": 2, "expiresDay": 28, "Fname": "Manuel", "LnameP": "Alcides" }
+]

@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { AdminRoutes } from "../../../models/routes";
 import AddIcon from '@mui/icons-material/Add';
+import { UsersModel } from "../../../models/User";
 
 function DashboardAdmin() {
   const [latestData, setlatestData] = useState([]);
@@ -30,7 +31,7 @@ function DashboardAdmin() {
           setlatestData(response);
         })
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }, []);
   return (
@@ -41,7 +42,7 @@ function DashboardAdmin() {
       <div className="W-100 m-0 m-auto py-3" style={{ height: 500 }}>
         <DataGrid
           getRowId={row => row["id_user"] || row["id"]}
-          rows={latestData || ROWSHELP}
+          rows={latestData.length != 0 ? latestData : UsersModel}
           columns={COLUMNSUSERS}
           pageSize={5}
           rowsPerPageOptions={[5]}

@@ -7,6 +7,7 @@ import ButtonBack from '../ButtonBack/ButtonBack';
 import { COLUMNSRECEIPT, ROWSHELP } from './../../../models/tables';
 import { Button, Container, Modal, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import { ReceiptsModel } from '../../../models/Receipts';
 const MainPay = lazy(() => import('./components/MainPay'));
 
 const styleModal = {
@@ -72,7 +73,7 @@ function Receipts() {
       <div className="w-100" style={{ height: 500 }}>
         <DataGrid
           getRowId={row => row["id_receipt"] || row["id"]}
-          rows={fulldata || ROWSHELP}
+          rows={fulldata.length != 0 ? fulldata : ReceiptsModel}
           columns={COLUMNSRECEIPT}
           pageSize={5}
           rowsPerPageOptions={[5]}
