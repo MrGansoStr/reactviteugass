@@ -1,5 +1,5 @@
-##Instalar Dependencias
+## To install Dependencies
 >npm install o npm i
 
-##Iniciar Aplicación
+## Run App
 >npm run dev o vite
